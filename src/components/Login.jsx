@@ -6,24 +6,25 @@ import {useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";
 const Login = () => {
 
-  const [email, setEmail] = useState('ElonMusk@gmail.com')
-  const [password, setPassword] = useState('ElonMusk@1')
+  const [emailId, setEmailId] = useState('john.doe@example.com')
+  const [password, setPassword] = useState('JohnDoe@1')
+  const [error, setError] = useState('')
   const dispatch = useDispatch()  
   const navigate = useNavigate()
 
   const handleSubmit = async () => {
     try {
       const res = await axios.post(BASE_URL+'/login',
-        { email, password }, { withCredentials: true })
-      console.log(res.data);
-      dispatch(addUser(res.data))
+        { emailId, password }, { withCredentials: true })
+      console.log(res?.data);
+      dispatch(addUser(res?.data))
       navigate("/feed")
     } catch (err) {
       console.log("Error in login")
+      setError(err?.response?.data.message || "Something went wrong")
       console.log(err)
     }
   }
-
 
   return (
     <div className="flex items-center justify-center py-16">
@@ -33,8 +34,8 @@ const Login = () => {
           <h2 className="card-title">Login</h2>
           <fieldset className="fieldset">
             <legend className="email">Email</legend>
-            <input type="email" value={email}
-              onChange={(e) => setEmail(e.target.value)}
+            <input type="email" value={emailId}
+              onChange={(e) => setEmailId(e.target.value)}
               className="input" placeholder="Type here" />
           </fieldset>
           <fieldset className="fieldset">
@@ -43,6 +44,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="input" placeholder="Type here" />
           </fieldset>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Login</button>
           </div>
