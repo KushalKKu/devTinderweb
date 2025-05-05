@@ -18,7 +18,7 @@ const EditProfile = ({ user }) => {
   const [showToast, setShowToast] = useState(false);
 
   const saveProfile = async () => {
-    console.log("clickwd")
+    // console.log("clickwd")
     setError("");
 
     try {

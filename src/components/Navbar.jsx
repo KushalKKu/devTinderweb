@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   const user = useSelector((store) => store.user)
-  console.log("from store", user)
+  // console.log("from store", user)
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
@@ -43,6 +43,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li><Link to='/profile'>Profile</Link> </li>
                 <li><Link to="/connection">Connections</Link></li>
+                <li><Link to="/request">Requests</Link></li>
                 <li><a onClick={handleLogout}> Logout</a></li>
               </ul>
             </div>
