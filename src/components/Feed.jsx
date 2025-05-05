@@ -11,7 +11,7 @@ const Feed = () => {
   const dispatch = useDispatch()
 
   const getFeed = async () => {
-    if (feed && feed.length > 0) return;
+    if (feed && feed.length > 0) return <h1>Error null Feed</h1>;
     try {
       const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
@@ -27,9 +27,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  // if (!feed) return;
-
-  if (feed.length <= 0)
+  if (!feed || feed.length <= 0)
     return <h1 className="flex justify-center my-10">No new users founds!</h1>;
 
   return (

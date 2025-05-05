@@ -33,9 +33,15 @@ const Body = () => {
 
   return (
     <div>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
+      <div className="flex flex-col h-screen">
+      <Navbar />
+      <div className="flex-1 overflow-y-auto px-4 py-2 bg-base-100">
+        <Outlet />
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <Footer />
+      </div>
+    </div>
     </div>
   )
 }
