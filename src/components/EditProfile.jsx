@@ -51,6 +51,37 @@ const EditProfile = ({ user }) => {
 
   };
 
+  // const saveProfile = async () => {
+  //   setError("");
+  
+  //   try {
+  //     const res = await axios.patch(
+  //       `${BASE_URL}/profile/edit`,
+  //       {
+  //         firstName,
+  //         lastName,
+  //         photoUrl,
+  //         age,
+  //         gender,
+  //         about,
+  //       },
+  //       {
+  //         withCredentials: true,
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           'Accept': 'application/json',
+  //         }
+  //       }
+  //     );
+  //     dispatch(addUser(res?.data?.data));
+  //     setShowToast(true);
+  //     setTimeout(() => setShowToast(false), 3000);
+  //   } catch (err) {
+  //     setError(err?.response?.data?.message || "Something went wrong");
+  //     console.error("Error saving profile:", err);
+  //   }
+  // };
+
   return (
     <>
       <div className="flex justify-center my-5">
